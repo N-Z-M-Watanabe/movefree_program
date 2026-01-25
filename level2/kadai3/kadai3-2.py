@@ -1,7 +1,7 @@
 # 演習4-2
 
 # 合計金額(int)とランク(str)を受け取り、支払い金額(int)を返す関数
-# defで関数宣言、「calculate_payment」というリストを作成
+# defで関数宣言、「calculate_payment」という関数を作成
 # amountは合計金額で整数、rankはランクで文字列、これらが引数
 def calculate_payment(amount: int, rank: str) -> int:
 
