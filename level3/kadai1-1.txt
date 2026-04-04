@@ -1,0 +1,37 @@
+演習1
+
+【robots.txtの記載内容】
+User-agent: *
+Disallow: /*?ndx=t&
+Disallow: /*?ndx=t$
+Disallow: /*&ndx=t&
+Disallow: /*&ndx=t$
+Disallow: /*&amp;ndx=t&
+Disallow: /*&amp;ndx=t$
+Disallow: /okuru/*
+
+【行ごとの詳細】
+User-agent: * → 全てのクローラー(スクレイピングプログラム)に対して
+Disallow: /*?ndx=t& → URL中に ?ndx=t& を含むページの収集を禁止
+Disallow: /*?ndx=t$ → URLが ?ndx=t で終わるページの収集を禁止
+Disallow: /*&ndx=t& → URL中に &ndx=t& を含むページの収集を禁止
+Disallow: /*&ndx=t$ → URLが &ndx=t で終わるページの収集を禁止
+Disallow: /*&amp;ndx=t& → &(実体参照)ndx=t& を含むURLの収集を禁止
+Disallow: /*&amp;ndx=t$ → 末尾が &(実体参照)ndx=t のURLの収集を禁止
+Disallow: /okuru/* → 「okuru」フォルダ内の全てのデータの収集を禁止
+
+【以下メモ】
+User-agent→「Google」「yahoo」などのブラウザやwebスクレイピングプログラム(=クローラー)を指す。
+* →ワイルドカード
+User-agent: * →「全てのクローラーに対して」と指定
+
+Disallow→「許可しない」という指示
+ndx=t→「ndx」は目次や索引、並び順を示す変数としてよく使われ、「t」はtopやtrueを意味すると予測される
+→同じwebページにおいて「並び替えの変更状態」「表示の切り替え状態」を示している
+
+?→URLパラメータの始まり
+&→複数のキーワードを区切る
+$→URLの終わり、末尾
+&amp;→実体参照での「&」
+
+
