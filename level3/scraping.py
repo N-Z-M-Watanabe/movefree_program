@@ -74,7 +74,7 @@ def get_shop_urls(url):
 
     # 解析データから、特定のクラスのaタグを全取得
     shops_list = bs_data.find_all("a", class_="style_titleLink___TtTO")
-    logger.debug(f"取得したaタグ:{len(shops_list)})件")
+    logger.debug(f"取得したaタグ:{len(shops_list)}件")
 
     urls = []
 
@@ -82,7 +82,7 @@ def get_shop_urls(url):
         shop_url = a_tag.get("href")
         urls.append(shop_url)
 
-    logger.debug(f"URL抽出件数:{len(urls)})件")
+    logger.debug(f"URL抽出件数:{len(urls)}件")
 
     return urls
 
@@ -112,7 +112,7 @@ def get_shop_info(url):
     except requests.exceptions.RequestException as e:
         logger.error(f"店舗ページの取得に失敗 ({url}): {e}")
         
-    return
+        return
     
     res.encoding = res.apparent_encoding
     bs_data = BeautifulSoup(res.text, "html.parser")
