@@ -9,7 +9,7 @@ def lists_convert_csv(data_list, file_name):
     import os
 
     current_dir = os.path.dirname(os.path.abspath(__file__))  #カレントディレクトリ取得
-    file_path = os.path.join(current_dir, file_name)  # カレントディレクトリ+CSVのパスを変数化
+    file_path = os.path.join(current_dir, "..", file_name)  # 保存するCSVのフルパスを作成
 
     # shift-jis用の変換関数
     def clean_text(text):
@@ -24,8 +24,8 @@ def lists_convert_csv(data_list, file_name):
         cleaned_row = [clean_text(item) for item in shop]
         cleaned_list.append(cleaned_row)
 
-        with open(file_path, "w", newline="", encoding="shift_jis", errors="replace") as f:
-            writer = csv.writer(f)
-            # ヘッダー（項目名）を書き込む
-            writer.writerow(["店舗名", "電話番号", "都道府県", "市区町村", "番地", "建物名", "URL", "SSL"])
-            writer.writerows(cleaned_list)
+    with open(file_path, "w", newline="", encoding="shift_jis", errors="replace") as f:
+        writer = csv.writer(f)
+        # ヘッダー（項目名）を書き込む
+        writer.writerow(["店舗名", "電話番号", "都道府県", "市区町村", "番地", "建物名", "URL", "SSL"])
+        writer.writerows(cleaned_list)
